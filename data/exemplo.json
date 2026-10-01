@@ -1,0 +1,16 @@
+{
+  "pedidos": [
+    {"id": "A", "peso": 100, "valor": 500, "prazo": 8,  "distancia": 180},
+    {"id": "B", "peso": 200, "valor": 800, "prazo": 4,  "distancia": 60},
+    {"id": "C", "peso": 150, "valor": 700, "prazo": 10, "distancia": 120}
+  ],
+  "caminhao": {
+    "capacidade": 300,
+    "autonomia": 200,
+    "velocidade": 60
+  },
+  "rota": {
+    "destino": 500,
+    "postos": [80, 170, 250, 330, 410]
+  }
+}
