@@ -11,7 +11,7 @@
 | Data | Dia | Responsável | Commit | Entrega do dia |
 |------|-----|-------------|--------|----------------|
 | 30/09 | Quarta | Maria Clara | `feat: cria estrutura inicial do projeto` | Repo + estrutura + entrada de dados |
-| 01/10 | Quinta | Ana Júlia | `feat: implementa algoritmo knapsack` | Knapsack (DP) + alternativa gulosa + complexidade |
+| 01/10 | Quinta | Ana Júlia | `feat: implementa algoritmo knapsack` | Knapsack (guloso) + DP como referência + complexidade |
 | 02/10 | Sexta | Ana Júlia | `feat: implementa algoritmo minimize lateness` | Lateness (guloso) + alternativa + complexidade |
 | 03/10 | Sábado | Ana Júlia | `feat: implementa algoritmo caminhoneiro` | Caminhoneiro (guloso) + alternativa + complexidade |
 | 04/10 | Domingo | Maria Clara | `feat: integra algoritmos, testes e benchmark` | Fluxo completo + testes + script de experimentos |
@@ -105,19 +105,19 @@ Pedido C → 150 kg → R$ 700
 
 Capacidade do caminhão = 300 kg
 
-Cargas escolhidas (DP, ótimo): A + B
-Peso total: 300 kg
-Valor total: R$ 1.300
-
-Para comparar, o guloso por valor/peso escolhe: A + C
+Cargas escolhidas (guloso por valor/peso): A + C
 Peso total: 250 kg
-Valor total: R$ 1.200  ← não é ótimo
+Valor total: R$ 1.200
+
+Para comparar, a DP (ótima) escolhe: A + B
+Peso total: 300 kg
+Valor total: R$ 1.300  ← o guloso não é ótimo aqui
 ```
 
 **Análise (anotar para o README):**
-- **Estratégia:** programação dinâmica. O knapsack 0/1 **não** é guloso: a solução ótima exige DP.
-- **Complexidade:** tempo O(n·W), espaço O(n·W) para reconstruir os pedidos escolhidos (O(W) se só quiser o valor).
-- **Alternativa para comparar:** guloso por valor/peso, O(n log n). É rápido, mas não é ótimo.
+- **Estratégia:** gulosa (ambiciosa). Ordenar os pedidos por valor/peso decrescente e ir pegando enquanto couber na capacidade. No knapsack 0/1 (pedido não se divide) essa estratégia **não** garante o ótimo; ela só é ótima na versão fracionária.
+- **Complexidade:** tempo O(n log n) (dominado pela ordenação), espaço O(n).
+- **Alternativa para comparar:** programação dinâmica, que é ótima: tempo O(n·W), espaço O(n·W) para reconstruir os pedidos escolhidos (O(W) se só quiser o valor). Serve de referência para medir quanto valor o guloso perde.
   Contra-exemplo útil pro vídeo: o próprio exemplo acima (razões: A = 5, C ≈ 4,67, B = 4). O guloso pega A + C (R$ 1.200) e a DP pega A + B (R$ 1.300).
 - **Opcional:** força bruta O(2ⁿ) só para n pequeno, para validar a DP.
 
@@ -296,7 +296,7 @@ Depois de rodar os testes, corrigir os bugs encontrados (se precisar mexer em al
 
 ### 1. Rodar o benchmark e montar os resultados
 
-| n | Knapsack (DP) | Knapsack (guloso) | Lateness (EDF) | Lateness (FIFO) | Caminhoneiro |
+| n | Knapsack (guloso) | Knapsack (DP) | Lateness (EDF) | Lateness (FIFO) | Caminhoneiro |
 |---|---------------|-------------------|----------------|-----------------|--------------|
 | 10 | | | | | |
 | 100 | | | | | |
@@ -331,7 +331,7 @@ Comentar: o crescimento observado bate com a complexidade teórica? Onde o gulos
 |-------|----------|------|
 | 00:00 – 00:40 | Apresentação do problema | Maria Clara |
 | 00:40 – 02:00 | Explicação do sistema e da integração | Maria Clara |
-| 02:00 – 03:00 | Knapsack (DP vs guloso) | Ana Júlia |
+| 02:00 – 03:00 | Knapsack (guloso vs DP) | Ana Júlia |
 | 03:00 – 04:00 | Minimize Lateness | Ana Júlia |
 | 04:00 – 05:00 | Caminhoneiro | Ana Júlia |
 | 05:00 – 06:00 | Demonstração do programa | Maria Clara |
@@ -349,7 +349,7 @@ feat: cria estrutura inicial do projeto
 
 01/10 (qui) — ANA JÚLIA
 feat: implementa algoritmo knapsack
-→ DP + alternativa gulosa + complexidade
+→ guloso + DP como referência + complexidade
 
 02/10 (sex) — ANA JÚLIA
 feat: implementa algoritmo minimize lateness

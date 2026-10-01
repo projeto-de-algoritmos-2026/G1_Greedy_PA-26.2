@@ -22,7 +22,7 @@ def main(caminho: Path = ENTRADA_PADRAO) -> None:
     print(f"Caminhão: capacidade {caminhao.capacidade:g} kg, autonomia {caminhao.autonomia:g} km")
     print(f"Rota: {rota.destino:g} km, {len(rota.postos)} postos\n")
 
-    # TODO (04/10): cargas = knapsack_dp(pedidos, caminhao.capacidade)
+    # TODO (04/10): cargas = knapsack_guloso(pedidos, caminhao.capacidade)
     # TODO (04/10): entregas = minimize_lateness(cargas, caminhao)
     # TODO (04/10): paradas = caminhoneiro_guloso(rota, caminhao.autonomia)
     print("[em construção] algoritmos ainda não integrados")

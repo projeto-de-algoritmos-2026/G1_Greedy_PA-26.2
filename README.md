@@ -40,17 +40,18 @@ Arquivo JSON, com exemplo em `data/exemplo.json`. Detalhes em [docs/formato-de-e
 
 | Etapa | Algoritmo | Estratégia | Por que é adequado |
 |---|---|---|---|
-| Seleção das cargas | Knapsack 0/1 | Programação dinâmica | A capacidade é limitada e o problema **não** é guloso: a solução ótima exige DP |
+| Seleção das cargas | Knapsack 0/1 | Guloso (maior valor/peso primeiro) | Escolhe sempre o pedido mais "rentável" por kg que ainda cabe; é rápido, mas no 0/1 não garante o ótimo (a DP serve de referência) |
 | Ordem das entregas | Minimize Lateness | Guloso (Earliest Deadline First) | Ordenar por prazo crescente minimiza o maior atraso (prova por argumento de troca) |
 | Paradas de abastecimento | Caminhoneiro | Guloso | Seguir até o posto mais distante ainda alcançável minimiza o número de paradas |
 
-Cada algoritmo tem uma **versão principal** e uma **versão alternativa**, usada para comparação (por exemplo, o guloso por valor/peso no Knapsack, que é rápido mas não é ótimo).
+Cada algoritmo tem uma **versão principal** e uma **versão alternativa**, usada para comparação (por exemplo, a programação dinâmica no Knapsack, que é ótima e mostra quanto valor o guloso perde).
 
 ### Complexidade
 
 | Algoritmo | Tempo | Espaço |
 |---|---|---|
-| Knapsack (DP) | `O(n·W)` | `O(n·W)` para reconstruir os pedidos escolhidos |
+| Knapsack (guloso) | `O(n log n)` | `O(n)` |
+| Knapsack (DP, referência) | `O(n·W)` | `O(n·W)` para reconstruir os pedidos escolhidos |
 | Minimize Lateness (EDF) | `O(n log n)` | `O(n)` |
 | Caminhoneiro (guloso) | `O(n)` com postos ordenados (`O(n log n)` se precisar ordenar) | `O(k)`, com `k` = número de paradas |
 
@@ -63,7 +64,7 @@ G1_Greedy_PA-26.2/
 ├── src/
 │   ├── main.py          # fluxo completo: pedidos -> knapsack -> lateness -> caminhoneiro
 │   ├── modelos.py       # tipos (Pedido, Caminhao, Rota, Entrega) e leitura da entrada
-│   ├── knapsack.py      # Knapsack (DP) + alternativa gulosa
+│   ├── knapsack.py      # Knapsack (guloso) + DP de referência
 │   ├── lateness.py      # Minimize Lateness (EDF) + alternativa
 │   ├── caminhoneiro.py  # Caminhoneiro (guloso) + alternativa
 │   └── benchmark.py     # experimentos de tempo (n = 10, 100, 1.000, 10.000)

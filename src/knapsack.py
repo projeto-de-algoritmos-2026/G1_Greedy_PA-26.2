@@ -7,11 +7,11 @@ Saida:    lista com os Pedido selecionados.
 from modelos import Pedido
 
 
-def knapsack_dp(pedidos: list[Pedido], capacidade: float) -> list[Pedido]:
-    """Versao principal: programacao dinamica, O(n*W) tempo e espaco. Solucao otima."""
-    raise NotImplementedError("knapsack_dp: implementar (01/10, Ana Julia)")
-
-
 def knapsack_guloso(pedidos: list[Pedido], capacidade: float) -> list[Pedido]:
-    """Versao alternativa: guloso por valor/peso, O(n log n). Rapido, mas nao e otimo."""
+    """Versao principal: guloso por valor/peso, O(n log n). Rapido, mas nao garante o otimo."""
     raise NotImplementedError("knapsack_guloso: implementar (01/10, Ana Julia)")
+
+
+def knapsack_dp(pedidos: list[Pedido], capacidade: float) -> list[Pedido]:
+    """Versao alternativa (referencia): programacao dinamica, O(n*W). Solucao otima, para comparar."""
+    raise NotImplementedError("knapsack_dp: implementar (01/10, Ana Julia)")
