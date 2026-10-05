@@ -20,6 +20,11 @@ def lateness_fifo(pedidos: list[Pedido], caminhao: Caminhao) -> list[Entrega]:
     return _montar_entregas(pedidos, caminhao)
 
 
+def maior_atraso(entregas: list[Entrega]) -> float:
+    """Maior atraso entre as entregas (0 se nenhuma atrasar)."""
+    return max((entrega.atraso for entrega in entregas), default=0.0)
+
+
 def _montar_entregas(pedidos: list[Pedido], caminhao: Caminhao) -> list[Entrega]:
     """Calcula conclusao e atraso de uma ordem de pedidos, sem tempo ocioso."""
     if caminhao.velocidade <= 0:
