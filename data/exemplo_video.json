@@ -1,0 +1,20 @@
+{
+  "pedidos": [
+    {"id": "A", "peso": 120, "valor": 900,  "prazo": 3,  "distancia": 240},
+    {"id": "B", "peso": 200, "valor": 1000, "prazo": 4,  "distancia": 120},
+    {"id": "C", "peso": 150, "valor": 1050, "prazo": 7,  "distancia": 180},
+    {"id": "D", "peso": 250, "valor": 1100, "prazo": 6,  "distancia": 300},
+    {"id": "E", "peso": 80,  "valor": 720,  "prazo": 1,  "distancia": 60},
+    {"id": "F", "peso": 180, "valor": 810,  "prazo": 8,  "distancia": 240},
+    {"id": "G", "peso": 100, "valor": 650,  "prazo": 5,  "distancia": 120}
+  ],
+  "caminhao": {
+    "capacidade": 500,
+    "autonomia": 250,
+    "velocidade": 60
+  },
+  "rota": {
+    "destino": 900,
+    "postos": [90, 230, 360, 470, 610, 720, 840]
+  }
+}
