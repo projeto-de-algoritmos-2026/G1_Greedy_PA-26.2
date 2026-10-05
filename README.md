@@ -196,8 +196,13 @@ pip install -r requirements.txt
 
 ## Como rodar
 
+### Para exemplo.json
 ```bash
-python src/main.py
+python src/main.py data/exemplo.json
+```
+### Para exemplo_video.json
+```bash
+python src/main.py data/exemplo_video.json
 ```
 
 Roda o fluxo completo com os dados de `data/exemplo.json` e imprime o plano logístico no terminal. Também aceita outro arquivo de entrada: `python src/main.py caminho/entrada.json`.
@@ -217,7 +222,7 @@ python src/grafico.py
 ## Como rodar os testes
 
 ```bash
-pytest tests/ -v
+python -m pytest -q
 ```
 
 ## Cronograma
@@ -229,4 +234,4 @@ O plano de commits detalhado está em [docs/plano-de-commits-sistema-logistica.m
 - Formato de entrada: [docs/formato-de-entrada.md](docs/formato-de-entrada.md)
 - Assinaturas das funções e fluxo principal: [docs/assinaturas.md](docs/assinaturas.md)
 - Análise de cada algoritmo (estratégia, complexidade, alternativa) e resultados experimentais: seções "Análise dos algoritmos" e "Resultados experimentais" deste README
-- Vídeo de apresentação: _a ser adicionado_
+- Vídeo de apresentação: [Link](https://youtu.be/BkpAobMH93w)
