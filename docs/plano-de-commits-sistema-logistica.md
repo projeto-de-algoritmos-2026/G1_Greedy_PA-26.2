@@ -80,7 +80,7 @@ Rota:
 
   Acréscimos em relação ao combinado inicial: `id` (identificar o pedido na saída), `velocidade` (o Minimize Lateness precisa de tempo, e `tempo = distância ÷ velocidade`) e `destino` (o Caminhoneiro precisa saber até onde vai). Detalhes em [formato-de-entrada.md](formato-de-entrada.md).
 
-- Combinar com a Ana Júlia a assinatura das funções (entrada e saída de cada algoritmo)
+- Combinar com a Ana Júlia a assinatura das funções (entrada e saída de cada algoritmo). Registrado em [assinaturas.md](assinaturas.md)
 - Combinar que cada algoritmo terá uma versão principal e uma versão alternativa (para comparação)
 
 **Objetivo:** terminar o dia com o projeto rodando, mesmo sem os algoritmos implementados.
@@ -258,24 +258,24 @@ Total de paradas:
 ### Casos de teste
 
 **Knapsack**
-- [ ] nenhum pedido
-- [ ] um pedido
-- [ ] todos os pedidos cabem
-- [ ] nenhum pedido cabe
-- [ ] capacidade exatamente igual ao peso
-- [ ] vários pedidos
+- [x] nenhum pedido
+- [x] um pedido
+- [x] todos os pedidos cabem
+- [x] nenhum pedido cabe
+- [x] capacidade exatamente igual ao peso
+- [x] vários pedidos
 
 **Minimize Lateness**
-- [ ] nenhum atraso
-- [ ] um pedido atrasado
-- [ ] vários pedidos
-- [ ] prazos iguais
+- [x] nenhum atraso
+- [x] um pedido atrasado
+- [x] vários pedidos
+- [x] prazos iguais
 
 **Caminhoneiro**
-- [ ] destino alcançável sem parada
-- [ ] uma parada
-- [ ] várias paradas
-- [ ] postos insuficientes para chegar ao destino
+- [x] destino alcançável sem parada
+- [x] uma parada
+- [x] várias paradas
+- [x] postos insuficientes para chegar ao destino
 
 Depois de rodar os testes, corrigir os bugs encontrados (se precisar mexer em algum algoritmo, avisar a Ana Júlia).
 
@@ -296,21 +296,23 @@ Depois de rodar os testes, corrigir os bugs encontrados (se precisar mexer em al
 
 ### 1. Rodar o benchmark e montar os resultados
 
-| n | Knapsack (guloso) | Knapsack (DP) | Lateness (EDF) | Lateness (FIFO) | Caminhoneiro |
-|---|---------------|-------------------|----------------|-----------------|--------------|
-| 10 | | | | | |
-| 100 | | | | | |
-| 1.000 | | | | | |
-| 10.000 | | | | | |
+| n | Knapsack (guloso) | Knapsack (DP) | Lateness (EDF) | Lateness (FIFO) | Caminhoneiro | Caminhoneiro (todos) |
+|---|---|---|---|---|---|---|
+| 10 | | | | | | |
+| 100 | | | | | | |
+| 1.000 | | | | | | |
+| 10.000 | | | | | | |
+
+Resultados preenchidos e gráfico: seção "Resultados experimentais" do README (tabela completa em `data/resultados_benchmark.csv`).
 
 Comentar: o crescimento observado bate com a complexidade teórica? Onde o guloso do knapsack perde valor em relação à DP?
 
 ### 2. Revisar o código
-- [ ] Knapsack funcionando
-- [ ] Minimize Lateness funcionando
-- [ ] Caminhoneiro funcionando
-- [ ] Integração funcionando
-- [ ] Casos de teste passando
+- [x] Knapsack funcionando
+- [x] Minimize Lateness funcionando
+- [x] Caminhoneiro funcionando
+- [x] Integração funcionando
+- [x] Casos de teste passando
 
 ### 3. Finalizar o README
 1. Introdução

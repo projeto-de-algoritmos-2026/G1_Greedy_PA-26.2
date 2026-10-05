@@ -30,3 +30,5 @@ Arquivo JSON (exemplo em [data/exemplo.json](../data/exemplo.json)):
 | `rota.postos` | km | posição de cada posto ao longo da rota |
 
 **Tempo de entrega:** o Minimize Lateness precisa de um tempo por pedido, mas a entrada traz distância. Por isso `tempo = distancia / velocidade` (função `tempo_entrega` em `modelos.py`). No exemplo, com 60 km/h, os pedidos A, B e C levam 3h, 1h e 2h.
+
+**Pesos inteiros:** `knapsack_dp` usa a capacidade e os pesos como unidades inteiras e rejeita valores fracionários com `ValueError`. O `knapsack_guloso` aceita pesos fracionários. O gerador do benchmark só produz pesos inteiros.
